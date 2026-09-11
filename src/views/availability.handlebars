@@ -1,0 +1,46 @@
+<section class="page-heading">
+  <p class="eyebrow">Operación</p>
+  <h1>Disponibilidad</h1>
+  <p class="lede">Estado actual de servicios y reservas almacenadas en MongoDB.</p>
+</section>
+
+<section class="availability-layout">
+  <div class="panel">
+    <div class="panel__heading">
+      <h2>Servicios</h2>
+      <span class="count">{{services.length}}</span>
+    </div>
+    <ul class="availability-list" aria-live="polite">
+      {{#each services}}
+        <li>
+          <span>{{name}}</span>
+          {{#if available}}
+            <span class="status status--available">Disponible</span>
+          {{else}}
+            <span class="status status--unavailable">No disponible</span>
+          {{/if}}
+        </li>
+      {{else}}
+        <li class="empty-state">No hay servicios para mostrar.</li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <div class="panel">
+    <div class="panel__heading">
+      <h2>Reservas</h2>
+      <span class="count">{{bookings.length}}</span>
+    </div>
+    <ul class="booking-list">
+      {{#each bookings}}
+        <li>
+          <strong>{{clientName}}</strong>
+          <span>{{date}} · {{time}}</span>
+          <small>{{status}} · {{services.length}} servicio(s)</small>
+        </li>
+      {{else}}
+        <li class="empty-state">No hay reservas registradas.</li>
+      {{/each}}
+    </ul>
+  </div>
+</section>

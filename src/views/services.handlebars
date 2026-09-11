@@ -1,0 +1,28 @@
+<section class="page-heading">
+  <p class="eyebrow">Catálogo en vivo</p>
+  <h1>Servicios</h1>
+  <p class="lede">Consulta la oferta disponible y recibe los nuevos servicios sin recargar.</p>
+</section>
+
+<section id="services-list" class="service-grid" aria-live="polite">
+  {{#each services}}
+    <article class="service-card" data-service-id="{{id}}">
+      <div class="service-card__topline">
+        <span class="tag">{{category}}</span>
+        {{#if available}}
+          <span class="status status--available">Disponible</span>
+        {{else}}
+          <span class="status status--unavailable">No disponible</span>
+        {{/if}}
+      </div>
+      <h2>{{name}}</h2>
+      <p>{{description}}</p>
+      <dl class="service-meta">
+        <div><dt>Duración</dt><dd>{{duration}} min</dd></div>
+        <div><dt>Precio</dt><dd>${{price}}</dd></div>
+      </dl>
+    </article>
+  {{else}}
+    <p class="empty-state">Todavía no hay servicios registrados.</p>
+  {{/each}}
+</section>
