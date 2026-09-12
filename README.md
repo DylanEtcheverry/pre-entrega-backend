@@ -39,6 +39,7 @@ Cada servicio tiene esta estructura:
 {
   id,
   name,
+  professionalName,
   description,
   duration,
   price,

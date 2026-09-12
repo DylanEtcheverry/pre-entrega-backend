@@ -4,6 +4,7 @@ const objectId = z.string().regex(/^[a-f\d]{24}$/i, 'must be a valid ObjectId');
 
 const serviceFields = {
   name: z.string().trim().min(1, 'is required'),
+  professionalName: z.string().trim().min(1, 'is required'),
   description: z.string().trim().min(1, 'is required'),
   duration: z.number().int().positive(),
   price: z.number().nonnegative(),

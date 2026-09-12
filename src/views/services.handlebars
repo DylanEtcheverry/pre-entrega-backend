@@ -4,6 +4,47 @@
   <p class="lede">Consulta la oferta disponible y recibe los nuevos servicios sin recargar.</p>
 </section>
 
+<section class="form-panel">
+  <div class="panel__heading">
+    <div>
+      <p class="eyebrow">Alta en tiempo real</p>
+      <h2>Agregar servicio</h2>
+    </div>
+  </div>
+  <form id="service-form" class="service-form">
+    <label>
+      Nombre del servicio
+      <input name="name" type="text" required>
+    </label>
+    <label>
+      Nombre de quien lo realizará
+      <input name="professionalName" type="text" required>
+    </label>
+    <label>
+      Precio
+      <input name="price" type="number" min="0" step="0.01" required>
+    </label>
+    <label>
+      Duración aproximada (minutos)
+      <input name="duration" type="number" min="1" step="1" required>
+    </label>
+    <label>
+      Categoría
+      <input name="category" type="text" placeholder="Ej. Consultas" required>
+    </label>
+    <label class="service-form__wide">
+      Descripción
+      <textarea name="description" rows="3" required></textarea>
+    </label>
+    <label class="checkbox-label">
+      <input name="available" type="checkbox" checked>
+      Disponible para reservar
+    </label>
+    <button type="submit">Agregar servicio</button>
+    <p id="service-form-status" class="form-status" role="status" aria-live="polite"></p>
+  </form>
+</section>
+
 <section id="services-list" class="service-grid" aria-live="polite">
   {{#each services}}
     <article class="service-card" data-service-id="{{id}}">
@@ -16,11 +57,13 @@
         {{/if}}
       </div>
       <h2>{{name}}</h2>
+      <p class="professional">A cargo de {{#if professionalName}}{{professionalName}}{{else}}Sin asignar{{/if}}</p>
       <p>{{description}}</p>
       <dl class="service-meta">
         <div><dt>Duración</dt><dd>{{duration}} min</dd></div>
         <div><dt>Precio</dt><dd>${{price}}</dd></div>
       </dl>
+      <button class="delete-service" type="button" data-service-id="{{id}}">Eliminar servicio</button>
     </article>
   {{else}}
     <p class="empty-state">Todavía no hay servicios registrados.</p>

@@ -52,6 +52,18 @@ h2 { margin: 0; }
 
 .service-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 .service-card, .panel { background: rgba(255, 253, 248, 0.86); border: 1px solid var(--line); box-shadow: var(--shadow); }
+.form-panel { background: rgba(255, 253, 248, 0.92); border: 1px solid var(--line); box-shadow: var(--shadow); margin-bottom: 24px; padding: 25px; }
+.service-form { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 22px; }
+.service-form label { color: var(--muted); display: grid; font: 700 0.72rem/1.3 Arial, sans-serif; gap: 7px; text-transform: uppercase; }
+.service-form input, .service-form textarea { background: #fff; border: 1px solid var(--line); border-radius: 2px; color: var(--ink); font: 1rem Georgia, serif; padding: 11px 12px; }
+.service-form input:focus, .service-form textarea:focus { border-color: var(--accent); outline: 2px solid rgba(212, 97, 61, 0.18); }
+.service-form__wide { grid-column: 1 / -1; }
+.checkbox-label { align-items: center; display: flex !important; flex-direction: row; text-transform: none !important; }
+.checkbox-label input { accent-color: var(--accent); width: auto; }
+.service-form button { background: var(--accent-dark); border: 0; color: white; cursor: pointer; font: 700 0.78rem Arial, sans-serif; letter-spacing: 0.05em; padding: 13px 17px; text-transform: uppercase; }
+.service-form button:hover { background: var(--accent); }
+.form-status { color: var(--teal); font: 0.85rem/1.4 Arial, sans-serif; margin: 0; }
+.professional { color: var(--accent-dark) !important; font-weight: 700 !important; }
 .service-card { min-height: 270px; padding: 24px; transition: transform 180ms ease; }
 .service-card:hover { transform: translateY(-4px); }
 .service-card--new { animation: appear 420ms ease both; border-color: var(--accent); }
@@ -67,6 +79,9 @@ h2 { margin: 0; }
 .service-meta div { display: grid; gap: 5px; }
 .service-meta dt { color: var(--muted); font: 0.68rem Arial, sans-serif; text-transform: uppercase; }
 .service-meta dd { font-weight: 700; margin: 0; }
+.delete-service { background: transparent; border: 1px solid #c45b43; color: var(--accent-dark); cursor: pointer; font: 700 0.68rem Arial, sans-serif; margin-top: 22px; padding: 9px 11px; text-transform: uppercase; }
+.delete-service:hover { background: #f6e2dc; }
+.delete-service:disabled { cursor: wait; opacity: 0.55; }
 .availability-layout { display: grid; gap: 20px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .panel { padding: 25px; }
 .panel__heading { border-bottom: 1px solid var(--line); padding-bottom: 16px; }
@@ -85,4 +100,6 @@ h2 { margin: 0; }
   .page-shell { padding-top: 28px; }
   h1 { font-size: 3.6rem; }
   .availability-layout { grid-template-columns: 1fr; }
+  .service-form { grid-template-columns: 1fr; }
+  .service-form__wide { grid-column: auto; }
 }
